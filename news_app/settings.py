@@ -39,11 +39,20 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'news.apps.NewsConfig',
     'debug_toolbar',
-]
+    "corsheaders",
 
+]
+CORS_ALLOWED_ORIGINS=True
+
+CORS_ALLOWED_ORIGIN_REGEXES=True
+
+CORS_ALLOW_ALL_ORIGINS=True
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
+
     'django.contrib.sessions.middleware.SessionMiddleware',
+    "corsheaders.middleware.CorsMiddleware",
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
